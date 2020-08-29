@@ -12,7 +12,8 @@ namespace switch_statement
         {
             int TotalCoffeCups = 0;
 
-            Console.WriteLine("Enter your coffee size : $1 - Small, $2 - Medium, $3 - Large");
+            Start:
+            Console.WriteLine("Please enter your coffee size : $1 - Small, $2 - Medium, $3 - Large");
             int YourChoice = int.Parse(Console.ReadLine());
 
             switch (YourChoice)
@@ -32,6 +33,23 @@ namespace switch_statement
                 default:
                     Console.WriteLine("Your Order is invalid");
                     break;
+            }
+
+            Decision:
+            Console.WriteLine("Do you want to more coffee : Yes or No?");
+            string YourDecision = Console.ReadLine();
+
+            switch (YourDecision.ToUpper())
+            {
+                case "YES":
+                    goto Start;
+
+                case "NO":
+                    break;
+
+                default:
+                    Console.WriteLine("Your order is {0} invalid",YourDecision);
+                    goto Decision;
             }
 
             Console.WriteLine("Thank you, Come Again!!!");
